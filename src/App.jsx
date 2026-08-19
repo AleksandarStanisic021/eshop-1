@@ -8,6 +8,10 @@ function App() {
           <h2>My App</h2>
         </div>
         <div className="nav-links">
+          <div className="hero">
+            <h1>Welcome to My App</h1>
+          </div>
+
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
