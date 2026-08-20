@@ -33,6 +33,9 @@ export default function Auth() {
                 name="email"
                 {...register("email", { required: "Email is required" })}
               />
+              {errors.email && (
+                <span className="form-error">{errors.email.message}</span>
+              )}
             </div>
             <div className="form-group">
               <label className="form-label" htmlFor="password">
@@ -55,6 +58,9 @@ export default function Auth() {
                   },
                 })}
               />
+              {errors.password && (
+                <span className="form-error">{errors.password.message}</span>
+              )}
             </div>
             <button type="submit" className="btn btn-primary btn-large">
               {mode === "signup" ? <>Sign Up</> : <>Login</>}
