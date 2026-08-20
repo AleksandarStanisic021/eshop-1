@@ -3,7 +3,6 @@ import { ProductCard } from "../components/ProductCard";
 
 export default function Home() {
   const products = getProducts();
-  console.log(products);
   return (
     <div className="page">
       <div className="home-hero">
@@ -14,7 +13,7 @@ export default function Home() {
         <h2 className="page-title">Our products</h2>
         <div className="product-grid">
           {products.map((product) => (
-            <ProductCard product={product} />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
