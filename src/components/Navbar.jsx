@@ -7,7 +7,7 @@ export default function Navbar() {
         <Link to="/" className="navbar-brand">
           Shop
           <span
-            style={{ color: "white", background: "black", padding: "0.3rem" }}>
+            style={{ color: "white", background: "gray", padding: "0.3rem" }}>
             Me
           </span>
         </Link>
