@@ -3,11 +3,13 @@ import "./App.css";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Checkout from "./pages/Checkout";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="app">
       <p>Hello, Vite + React! </p>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/auth" element={<Auth />}></Route>
