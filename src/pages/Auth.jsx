@@ -1,7 +1,18 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Auth() {
   const [mode, setMode] = useState("signup");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  function processForm(data) {
+    console.log("process,,", data);
+  }
 
   return (
     <div className="page">
@@ -10,7 +21,7 @@ export default function Auth() {
           <h1 className="page-title">
             {mode === "signup" ? <>Sign Up</> : <>Login</>}
           </h1>
-          <form className="auth-form">
+          <form onSubmit={handleSubmit(processForm)} className="auth-form">
             <div className="form-group">
               <label className="form-label" htmlFor="email">
                 Email
@@ -20,6 +31,7 @@ export default function Auth() {
                 type="email"
                 id="email"
                 name="email"
+                {...register("email", { required: "Email is required" })}
               />
             </div>
             <div className="form-group">
@@ -31,6 +43,17 @@ export default function Auth() {
                 type="password"
                 id="password"
                 name="password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                  maxLength: {
+                    value: 12,
+                    message: "Password is less than 12 characters",
+                  },
+                })}
               />
             </div>
             <button type="submit" className="btn btn-primary btn-large">
