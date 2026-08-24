@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 export default function Auth() {
   const [mode, setMode] = useState("signup");
 
-  const { signUp } = useContext(AuthContext);
+  const { signUp, user } = useContext(AuthContext);
 
   const {
     register,
@@ -15,13 +15,15 @@ export default function Auth() {
 
   function processForm(data) {
     signUp(data.email, data.password);
-    console.log("process,,", data);
+    console.log("process..", data);
+    console.log("user", user);
   }
 
   return (
     <div className="page">
       <div className="container">
         <div className="auth-container">
+          {user && <p>User logged in {user.email}</p>}
           <h1 className="page-title">
             {mode === "signup" ? <>Sign Up</> : <>Login</>}
           </h1>
