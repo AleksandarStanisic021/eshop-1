@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Auth() {
   const [mode, setMode] = useState("signup");
+
+  const { signUp } = useContext(AuthContext);
 
   const {
     register,
@@ -11,6 +14,7 @@ export default function Auth() {
   } = useForm();
 
   function processForm(data) {
+    signUp(data.email, data.password);
     console.log("process,,", data);
   }
 
