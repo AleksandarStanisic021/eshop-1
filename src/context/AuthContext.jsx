@@ -23,8 +23,14 @@ export default function AuthProvider({ children }) {
 
   function Login() {}
 
+  function logout() {
+    localStorage.removeItem("users");
+    setUser(null);
+    console.log("logout");
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signUp, Login }}>
+    <AuthContext.Provider value={{ user, signUp, Login, logout }}>
       {children}
     </AuthContext.Provider>
   );

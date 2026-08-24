@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 export default function Auth() {
   const [mode, setMode] = useState("signup");
 
-  const { signUp, user } = useContext(AuthContext);
+  const { signUp, user, logout } = useContext(AuthContext);
 
   const {
     register,
@@ -71,6 +71,7 @@ export default function Auth() {
             <button type="submit" className="btn btn-primary btn-large">
               {mode === "signup" ? <>Sign Up</> : <>Login</>}
             </button>
+            <button onClick={() => logout()}>Logout</button>
           </form>
           <div className="auth-switch">
             {mode === "signup" ? (
