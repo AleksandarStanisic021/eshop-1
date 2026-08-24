@@ -15,6 +15,10 @@ export default function AuthProvider({ children }) {
     const newUser = { email, password };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
+
+    setUser({ email });
+
+    return { success: true };
   }
 
   function Login() {}
